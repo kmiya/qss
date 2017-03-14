@@ -2,11 +2,10 @@
   <div id="app">
     <div class="row">
       <div class="col-md-6">
-        <img src="./assets/logo.png">
-        <setting-lists :intercept-urls="interceptUrls"></setting-lists>
+        <setting-lists :setting="settingTree"></setting-lists>
       </div>
       <div class="col-md-6">
-        <preview></preview>
+        <preview :setting="settingTree"></preview>
       </div>
     </div>
   </div>
@@ -20,15 +19,16 @@ export default {
   name: 'app',
   data() {
     return {
-      interceptUrls: {
-        test: 'testDesuYoYo',
-        column: [
-          'no', 'pattern', 'access',
-        ],
-        patterns: [
-          { no: 1, pattern: '/secure/**', access: 'hasAnyRoles(\'ROLE_ADMIN\',\'ROLE_USER\'' },
-          { no: 2, pattern: '/**', access: 'hasAnyRole(\'ROLE_DEVELOPER\',\'ROLE_USER\')' },
-        ],
+      settingTree: {
+        interceptUrls: {
+          column: [
+            'no', 'pattern', 'access',
+          ],
+          patterns: [
+            { no: 1, pattern: '/secure/**', access: 'hasAnyRoles(\'ROLE_ADMIN\',\'ROLE_USER\'' },
+            { no: 2, pattern: '/**', access: 'hasAnyRole(\'ROLE_DEVELOPER\',\'ROLE_USER\')' },
+          ],
+        },
       },
     };
   },
@@ -43,7 +43,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }
