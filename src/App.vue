@@ -20,15 +20,33 @@ export default {
   data() {
     return {
       settingTree: {
+        resources: {
+          column: [
+            'pattern', 'security',
+          ],
+          patterns: [
+            { pattern: '/resources/**', security: 'none' },
+          ],
+        },
+        formLogin: {
+          loginPage: '/login.jsp',
+          failureUrl: '/login.jsp?error=true',
+        },
+        logout: {
+          successUrl: '/',
+          deleteCookies: 'JSESSIONID',
+        },
         interceptUrls: {
           column: [
             'no', 'pattern', 'access',
           ],
           patterns: [
-            { no: 1, pattern: '/secure/**', access: 'hasAnyRoles(\'ROLE_ADMIN\',\'ROLE_USER\'' },
-            { no: 2, pattern: '/**', access: 'hasAnyRole(\'ROLE_DEVELOPER\',\'ROLE_USER\')' },
+            { no: 1, pattern: '/login.jsp', access: 'permitAll' },
+            { no: 2, pattern: '/**', access: 'isAuthenticated()' },
           ],
         },
+        enableCSRFProtection: true,
+        putUserIdIntoMDC: true,
       },
     };
   },
@@ -45,6 +63,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 </style>
