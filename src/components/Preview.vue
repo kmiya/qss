@@ -1,6 +1,6 @@
 <template>
 <div id="preview">
-  <pre id="preview" class="prettyprint"><code class="lang-xml">
+  <pre id="preview"><code class="lang-xml">
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -12,10 +12,8 @@
 
     &lt;sec:http<!--
 --><span v-for="entry in setting.resources.patterns"><!--
---><span v-for="key in setting.resources.column"><!--
---><span v-if="key === 'pattern'"> pattern=&quot;<span>{{ entry[key] }}</span>&quot;</span><!--
---><span v-else-if="key === 'security'"> security=&quot;<span>{{ entry[key] }}</span>&quot; /&gt;</span><!--
-  --></span><!--
+--> pattern=&quot;<span>{{ entry.pattern }}</span>&quot;<!--
+--> security=&quot;<span>{{ entry.security }}</span>&quot; /&gt;<!--
 --></span>
     &lt;sec:http&gt;
       &lt;sec:form-login
@@ -28,16 +26,14 @@
       &lt;sec:custom-filter ref=&quot;userIdMDCPutFilter&quot; after=&quot;ANONYMOUS_FILTER&quot;/&gt;
       &lt;sec:session-management /&gt;
 <div v-for="entry in setting.interceptUrls.patterns"><!--
---><span v-for="key in setting.interceptUrls.column"><!--
---><span v-if="key === 'pattern'">      &lt;sec:intercept-url pattern=&quot;<span>{{ entry[key] }}</span>&quot;</span><!--
---><span v-else-if="key === 'access'">access=&quot;<span>{{ entry[key] }}</span>&quot; /&gt;</span><!--
---></span>
-</div>
-    &lt;/sec:http&gt;
+-->      &lt;sec:intercept-url pattern=&quot;<span>{{ entry.pattern }}</span>&quot;<!--
+--> access=&quot;<span>{{ entry.access }}</span>&quot; /&gt;<!--
+--></div><!--
+-->    &lt;/sec:http&gt;
 
   &lt;sec:authentication-manager /&gt;
 <!--
---><div v-if="setting.enableCSRFProtection">
+--><div v-show="setting.enableCSRFProtection">
   &lt;!-- CSRF Protection --&gt;
   &lt;bean id=&quot;accessDeniedHandler&quot;
       class=&quot;org.springframework.security.web.access.DelegatingAccessDeniedHandler&quot;&gt;
@@ -88,13 +84,9 @@ export default {
   props: ['setting'],
   data() {
     return {
-      result: 'result',
     };
   },
   method: {
-    generateXmlConfig() {
-      this.result = 'changed';
-    },
   },
 };
 </script>

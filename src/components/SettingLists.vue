@@ -5,16 +5,13 @@
     <div class="form-group row">
       <label for="spring-security-version" class="col-5 col-form-label">Spring Security Version</label>
       <div class="col-7">
-        <select class="form-control" id="spring-security-version">
+        <select class="form-control form-control-sm" id="spring-security-version">
           <option value="4.x.x">4.x.x</option>
         </select>
       </div>
-    </div>
-
-    <div class="form-group row">
       <label for="config-template" class="col-5 col-form-label">Template</label>
       <div class="col-7">
-        <select class="form-control" id="config-template">
+        <select class="form-control form-control-sm" id="config-template">
           <option value="terasoluna-gfw-web-(multi-)blank">terasoluna-gfw-web-(multi-)blank</option>
         </select>
       </div>
@@ -31,7 +28,7 @@
       <tbody>
       <tr v-for="entry in setting.resources.patterns">
         <td v-for="key in setting.resources.column">
-          <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control">
+          <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control form-control-sm">
         </td>
       </tr>
       </tbody>
@@ -41,11 +38,11 @@
     <div class="form-group row">
       <label for="login-page" class="col-5 col-form-label">Login Page</label>
       <div class="col-7">
-        <input v-model="setting.formLogin.loginPage" :value="setting.formLogin.loginPage" class="form-control" type="text" id="login-page">
+        <input v-model="setting.formLogin.loginPage" :value="setting.formLogin.loginPage" class="form-control form-control-sm" type="text" id="login-page">
       </div>
       <label for="login-failure" class="col-5 col-form-label">Login Failure Url</label>
       <div class="col-7">
-        <input v-model="setting.formLogin.failureUrl" :value="setting.formLogin.failureUrl" class="form-control" type="text" id="login-failure">
+        <input v-model="setting.formLogin.failureUrl" :value="setting.formLogin.failureUrl" class="form-control form-control-sm" type="text" id="login-failure">
       </div>
     </div>
 
@@ -53,11 +50,11 @@
     <div class="form-group row">
       <label for="logout-success-url" class="col-5 col-form-label">Logout Success Url</label>
       <div class="col-7">
-        <input v-model="setting.logout.successUrl" :value="setting.logout.successUrl" class="form-control" type="text" id="logout-success-url">
+        <input v-model="setting.logout.successUrl" :value="setting.logout.successUrl" class="form-control form-control-sm" type="text" id="logout-success-url">
       </div>
       <label for="delete-cookies" class="col-5 col-form-label">Delete Cookies</label>
       <div class="col-7">
-        <input v-model="setting.logout.deleteCookies" :value="setting.logout.deleteCookies" class="form-control" type="text" id="delete-cookies">
+        <input v-model="setting.logout.deleteCookies" :value="setting.logout.deleteCookies" class="form-control form-control-sm" type="text" id="delete-cookies">
       </div>
     </div>
 
@@ -68,17 +65,24 @@
         <th scope="col">#</th>
         <th scope="col">Directory or File</th>
         <th scope="col">Permissions</th>
+        <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="entry in setting.interceptUrls.patterns">
+      <tr v-for="(entry, index) in setting.interceptUrls.patterns">
+        <td>{{ index + 1 }}</td>
         <td v-for="key in setting.interceptUrls.column">
-          <p v-if="key == 'no'">{{ entry[key] }}</p>
-          <input v-else v-model="entry[key]" :value="entry[key]" type="text" class="form-control">
+          <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control form-control-sm">
+        </td>
+        <td>
+          <button v-on:click="setting.interceptUrls.patterns.splice(index, 1)" type="button" class="delbtn btn btn-danger btn-sm float-right">del</button>
         </td>
       </tr>
       </tbody>
     </table>
+    <div class="clearfix">
+      <button v-on:click="$emit('add-new-policy');" type="button" class="addbtn btn btn-outline-primary btn-sm float-right">add</button>
+    </div>
 
     <h3 class="h5">Exception Handler</h3>
     <div class="form-group row">
@@ -123,8 +127,21 @@
 </script>
 
 <style>
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+.table-sm {
+  line-height: .8rem;
+}
 .form-control {
-  font-size: 0.9rem;
+  font-size: .9rem;
   font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+.delbtn {
+  margin-left: -.8rem;
+  margin-right: -.2rem;
+}
+.addbtn {
+  margin-top: -.8rem;
 }
 </style>

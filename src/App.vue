@@ -2,7 +2,7 @@
   <div id="app">
     <div class="row">
       <div class="col-md-6">
-        <setting-lists :setting="settingTree"></setting-lists>
+        <setting-lists :setting="settingTree" v-on:add-new-policy="addNewPolicy"></setting-lists>
       </div>
       <div class="col-md-6">
         <preview :setting="settingTree"></preview>
@@ -38,17 +38,22 @@ export default {
         },
         interceptUrls: {
           column: [
-            'no', 'pattern', 'access',
+            'pattern', 'access',
           ],
           patterns: [
-            { no: 1, pattern: '/login.jsp', access: 'permitAll' },
-            { no: 2, pattern: '/**', access: 'isAuthenticated()' },
+            { pattern: '/login.jsp', access: 'permitAll' },
+            { pattern: '/**', access: 'isAuthenticated()' },
           ],
         },
         enableCSRFProtection: true,
         putUserIdIntoMDC: true,
       },
     };
+  },
+  methods: {
+    addNewPolicy() {
+      this.settingTree.interceptUrls.patterns.push({ pattern: '', access: '' });
+    },
   },
   components: {
     SettingLists, Preview,
