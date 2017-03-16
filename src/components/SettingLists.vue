@@ -15,8 +15,7 @@
       <label for="config-template" class="col-5 col-form-label">Template</label>
       <div class="col-7">
         <select class="form-control" id="config-template">
-          <option value="terasoluna-gfw-web-multi-blank">terasoluna-gfw-web-multi-blank</option>
-          <option value="terasoluna-gfw-web-blank">terasoluna-gfw-web-blank</option>
+          <option value="terasoluna-gfw-web-(multi-)blank">terasoluna-gfw-web-(multi-)blank</option>
         </select>
       </div>
     </div>
