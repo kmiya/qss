@@ -21,18 +21,27 @@
     <table class="table table-sm">
       <thead>
       <tr>
+        <th scope="col">#</th>
         <th scope="col">Directory or File</th>
         <th scope="col">Security</th>
+        <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
-      <tr v-for="entry in setting.resources.patterns">
+      <tr v-for="(entry, index) in setting.resources.patterns">
+        <td>{{ index + 1}}</td>
         <td v-for="key in setting.resources.column">
           <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control form-control-sm">
+        </td>
+        <td>
+          <button v-on:click="setting.resources.patterns.splice(index, 1)" type="button" class="delbtn btn btn-danger btn-sm float-right">del</button>
         </td>
       </tr>
       </tbody>
     </table>
+    <div class="clearfix">
+      <button v-on:click="$emit('add-new-resource');" type="button" class="addbtn btn btn-outline-primary btn-sm float-right">add</button>
+    </div>
 
     <h3 class="h5">Login</h3>
     <div class="form-group row">

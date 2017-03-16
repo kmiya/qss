@@ -10,12 +10,11 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     &quot;&gt;
 
-    &lt;sec:http<!--
---><span v-for="entry in setting.resources.patterns"><!--
---> pattern=&quot;<span>{{ entry.pattern }}</span>&quot;<!--
+<div v-for="entry in setting.resources.patterns"><!--
+-->    &lt;sec:http pattern=&quot;<span>{{ entry.pattern }}</span>&quot;<!--
 --> security=&quot;<span>{{ entry.security }}</span>&quot; /&gt;<!--
---></span>
-    &lt;sec:http&gt;
+--></div><!--
+-->    &lt;sec:http&gt;
       &lt;sec:form-login
         login-page=&quot;<span>{{ setting.formLogin.loginPage }}</span>&quot;
         authentication-failure-url=&quot;<span>{{ setting.formLogin.failureUrl }}</span>&quot; /&gt;

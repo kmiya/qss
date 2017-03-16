@@ -2,7 +2,7 @@
   <div id="app">
     <div class="row">
       <div class="col-md-6">
-        <setting-lists :setting="settingTree" v-on:add-new-policy="addNewPolicy"></setting-lists>
+        <setting-lists :setting="settingTree" v-on:add-new-resource="addNewResource" v-on:add-new-policy="addNewPolicy"></setting-lists>
       </div>
       <div class="col-md-6">
         <preview :setting="settingTree"></preview>
@@ -51,6 +51,9 @@ export default {
     };
   },
   methods: {
+    addNewResource() {
+      this.settingTree.resources.patterns.push({ pattern: '', security: '' });
+    },
     addNewPolicy() {
       this.settingTree.interceptUrls.patterns.push({ pattern: '', access: '' });
     },
