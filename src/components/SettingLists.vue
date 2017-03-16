@@ -21,7 +21,7 @@
     </div>
 
     <h3 class="h5">Resources</h3>
-    <table class="table">
+    <table class="table table-sm">
       <thead>
       <tr>
         <th scope="col">Directory or File</th>
@@ -62,7 +62,7 @@
     </div>
 
     <h3 class="h5">Access Policies</h3>
-    <table class="table">
+    <table class="table table-sm">
       <thead>
       <tr>
         <th scope="col">#</th>
