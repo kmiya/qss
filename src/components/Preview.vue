@@ -11,8 +11,8 @@
     &quot;&gt;
 
     &lt;sec:http<!--
---><span v-for="entry in setting['resources']['patterns']"><!--
---><span v-for="key in setting['resources']['column']"><!--
+--><span v-for="entry in setting.resources.patterns"><!--
+--><span v-for="key in setting.resources.column"><!--
 --><span v-if="key === 'pattern'"> pattern=&quot;<span>{{ entry[key] }}</span>&quot;</span><!--
 --><span v-else-if="key === 'security'"> security=&quot;<span>{{ entry[key] }}</span>&quot; /&gt;</span><!--
   --></span><!--
@@ -27,8 +27,8 @@
       &lt;sec:access-denied-handler ref=&quot;accessDeniedHandler&quot;/&gt;
       &lt;sec:custom-filter ref=&quot;userIdMDCPutFilter&quot; after=&quot;ANONYMOUS_FILTER&quot;/&gt;
       &lt;sec:session-management /&gt;
-<div v-for="entry in setting['interceptUrls']['patterns']"><!--
---><span v-for="key in setting['interceptUrls']['column']"><!--
+<div v-for="entry in setting.interceptUrls.patterns"><!--
+--><span v-for="key in setting.interceptUrls.column"><!--
 --><span v-if="key === 'pattern'">      &lt;sec:intercept-url pattern=&quot;<span>{{ entry[key] }}</span>&quot;</span><!--
 --><span v-else-if="key === 'access'">access=&quot;<span>{{ entry[key] }}</span>&quot; /&gt;</span><!--
 --></span>

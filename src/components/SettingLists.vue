@@ -30,8 +30,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="entry in setting['resources']['patterns']">
-        <td v-for="key in setting['resources']['column']">
+      <tr v-for="entry in setting.resources.patterns">
+        <td v-for="key in setting.resources.column">
           <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control">
         </td>
       </tr>
@@ -42,11 +42,11 @@
     <div class="form-group row">
       <label for="login-page" class="col-5 col-form-label">Login Page</label>
       <div class="col-7">
-        <input v-model="setting['formLogin']['loginPage']" :value="setting['formLogin']['loginPage']" class="form-control" type="text" id="login-page">
+        <input v-model="setting.formLogin.loginPage" :value="setting.formLogin.loginPage" class="form-control" type="text" id="login-page">
       </div>
       <label for="login-failure" class="col-5 col-form-label">Login Failure Url</label>
       <div class="col-7">
-        <input v-model="setting['formLogin']['failureUrl']" :value="setting['formLogin']['failureUrl']" class="form-control" type="text" id="login-failure">
+        <input v-model="setting.formLogin.failureUrl" :value="setting.formLogin.failureUrl" class="form-control" type="text" id="login-failure">
       </div>
     </div>
 
@@ -72,8 +72,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="entry in setting['interceptUrls']['patterns']">
-        <td v-for="key in setting['interceptUrls']['column']">
+      <tr v-for="entry in setting.interceptUrls.patterns">
+        <td v-for="key in setting.interceptUrls.column">
           <p v-if="key == 'no'">{{ entry[key] }}</p>
           <input v-else v-model="entry[key]" :value="entry[key]" type="text" class="form-control">
         </td>
@@ -91,10 +91,10 @@
 
     <h3 class="h5">CSRF Protection</h3>
     <div class="form-check">
-      <div class="alert" v-bind:class="{'alert-danger': !setting['enableCSRFProtection']}">
+      <div class="alert" v-bind:class="{'alert-danger': !setting.enableCSRFProtection}">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="setting['enableCSRFProtection']" />
-          <span v-if="!setting['enableCSRFProtection']"><strong>Enable CSRF protection</strong>&ensp;</strong>
+          <input class="form-check-input" type="checkbox" v-model="setting.enableCSRFProtection" />
+          <span v-if="!setting.enableCSRFProtection"><strong>Enable CSRF protection</strong>&ensp;</strong>
           <span class="badge badge-pill badge-danger">Danger!</span></span>
           <span v-else>Enable CSRF protection&ensp;<span class="badge badge-pill badge-success">Good!</span></span>
         </label>
@@ -104,7 +104,7 @@
     <h3 class="h5">Misc</h3>
     <div class="form-check">
       <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" v-model="setting['putUserIdIntoMDC']" />
+        <input class="form-check-input" type="checkbox" v-model="setting.putUserIdIntoMDC" />
         Put UserID into MDC
       </label>
     </div>
