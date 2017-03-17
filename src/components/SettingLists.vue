@@ -21,6 +21,10 @@
     <span class="fold float-left">
       <a class="fold text-muted" @click="res.open = !res.open">{{ res.open ? '[-]' : '[+]' }}</a>
     </span>
+    <span class="guideline float-right">
+      <a href="#" class="guideline text-muted">[T]</a>
+      <a href="#" class="guideline text-muted">[P]</a>
+    </span>
     <h3 class="h5">Resources</h3>
     <div v-show="res.open">
       <table  class="table table-sm">
@@ -61,6 +65,10 @@
     <span class="fold float-left">
       <a class="fold text-muted" @click="login.open = !login.open">{{ login.open ? '[-]' : '[+]' }}</a>
     </span>
+    <span class="guideline float-right">
+      <a href="#" class="guideline text-muted">[T]</a>
+      <a href="#" class="guideline text-muted">[P]</a>
+    </span>
     <h3 class="h5">Login</h3>
     <div v-show="login.open">
       <div class="form-group row">
@@ -83,6 +91,10 @@
     <span class="fold float-left">
       <a class="fold text-muted" @click="logout.open = !logout.open">{{ logout.open ? '[-]' : '[+]' }}</a>
     </span>
+    <span class="guideline float-right">
+      <a href="#" class="guideline text-muted">[T]</a>
+      <a href="#" class="guideline text-muted">[P]</a>
+    </span>
     <h3 class="h5">Logout</h3>
     <div v-show="logout.open">
       <div class="form-group row">
@@ -104,6 +116,10 @@
     <!-- Access Policies -->
     <span class="fold float-left">
       <a class="fold text-muted" @click="policies.open = !policies.open">{{ policies.open ? '[-]' : '[+]' }}</a>
+    </span>
+    <span class="guideline float-right">
+      <a href="#" class="guideline text-muted">[T]</a>
+      <a href="#" class="guideline text-muted">[P]</a>
     </span>
     <h3 class="h5">Access Policies</h3>
     <div v-show="policies.open">
@@ -139,6 +155,10 @@
     </div>
 
     <!-- Exception -->
+    <span class="guideline float-right">
+      <a href="#" class="guideline text-muted">[T]</a>
+      <a href="#" class="guideline text-muted">[P]</a>
+    </span>
     <h3 class="h5">Exception Handler</h3>
     <div class="form-group row">
       <label for="exception-url" class="col-5 col-form-label">Exception URL</label>
@@ -150,6 +170,10 @@
     <!-- CSRF -->
     <span class="fold float-left">
       <a class="fold text-muted" @click="csrf.open = !csrf.open">{{ csrf.open ? '[-]' : '[+]' }}</a>
+    </span>
+    <span class="guideline float-right">
+      <a href="#" class="guideline text-muted">[T]</a>
+      <a href="#" class="guideline text-muted">[P]</a>
     </span>
     <h3 class="h5">CSRF Protection</h3>
     <div v-show="csrf.open">
@@ -206,6 +230,11 @@
 </script>
 
 <style>
+.guideline {
+  margin-top: .2rem;
+  font-size: .8rem;
+  vertical-align: middle;
+}
 .fold {
   margin-left: -.95rem;
   text-align: right;
@@ -237,5 +266,6 @@
 }
 .addbtn {
   margin-top: -.8rem;
+  margin-bottom: 1rem;
 }
 </style>
