@@ -37,8 +37,8 @@
           <td v-for="key in setting.resources.column">
             <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control form-control-sm">
           </td>
-          <td>
-            <button @click="setting.resources.patterns.splice(index, 1)" type="button" class="delbtn btn btn-danger btn-sm float-right">del</button>
+          <td class="tddelbtn">
+            <button @click="setting.resources.patterns.splice(index, 1)" type="button" class="delbtn btn btn-danger btn-sm">del</button>
           </td>
         </tr>
         </tbody>
@@ -102,7 +102,7 @@
         <td v-for="key in setting.interceptUrls.column">
           <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control form-control-sm">
         </td>
-        <td>
+        <td class="tddelbtn">
           <button @click="setting.interceptUrls.patterns.splice(index, 1)" type="button" class="delbtn btn btn-danger btn-sm float-right">del</button>
         </td>
       </tr>
@@ -192,8 +192,13 @@
   font-size: .8rem;
   font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 }
+.tddelbtn {
+  width: 2.5rem;
+  text-align: right;
+  margin-left: 0rem;
+  padding-left: 0rem;
+}
 .delbtn {
-  margin-left: -.8rem;
   margin-right: -.2rem;
 }
 .addbtn {
