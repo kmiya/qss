@@ -17,6 +17,7 @@
       </div>
     </div>
 
+    <!-- Resources -->
     <span class="fold float-left">
       <a class="fold text-muted" @click="res.open = !res.open">{{ res.open ? '[-]' : '[+]' }}</a>
     </span>
@@ -35,19 +36,28 @@
         <tr v-for="(entry, index) in setting.resources.patterns">
           <td>{{ index + 1}}</td>
           <td v-for="key in setting.resources.column">
-            <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control form-control-sm">
+            <input v-model="entry[key]" :value="entry[key]"
+              @focus="$emit('focus-on', 'resources');" @blur="$emit('focus-out', 'resources')"
+              type="text" class="form-control form-control-sm">
           </td>
           <td class="tddelbtn">
-            <button @click="setting.resources.patterns.splice(index, 1)" type="button" class="delbtn btn btn-danger btn-sm">del</button>
+            <button @click="setting.resources.patterns.splice(index, 1)"
+              type="button" class="delbtn btn btn-danger btn-sm">
+              del
+            </button>
           </td>
         </tr>
         </tbody>
       </table>
       <div class="clearfix">
-        <button @click="$emit('add-new-resource');" type="button" class="addbtn btn btn-outline-primary btn-sm float-right">add</button>
+        <button @click="$emit('add-new-resource');"
+          type="button" class="addbtn btn btn-outline-primary btn-sm float-right">
+          add
+        </button>
       </div>
     </div>
 
+    <!-- login -->
     <span class="fold float-left">
       <a class="fold text-muted" @click="login.open = !login.open">{{ login.open ? '[-]' : '[+]' }}</a>
     </span>
@@ -56,15 +66,20 @@
       <div class="form-group row">
       <label for="login-page" class="col-5 col-form-label">Login Page</label>
       <div class="col-7">
-        <input v-model="setting.formLogin.loginPage" :value="setting.formLogin.loginPage" class="form-control form-control-sm" type="text" id="login-page">
+        <input v-model="setting.formLogin.loginPage" :value="setting.formLogin.loginPage"
+          @focus="$emit('focus-on', 'login');" @blur="$emit('focus-out', 'login')"
+          class="form-control form-control-sm" type="text" id="login-page">
       </div>
       <label for="login-failure" class="col-5 col-form-label">Login Failure Url</label>
       <div class="col-7">
-        <input v-model="setting.formLogin.failureUrl" :value="setting.formLogin.failureUrl" class="form-control form-control-sm" type="text" id="login-failure">
+        <input v-model="setting.formLogin.failureUrl" :value="setting.formLogin.failureUrl"
+          @focus="$emit('focus-on', 'login');" @blur="$emit('focus-out', 'login')"
+          class="form-control form-control-sm" type="text" id="login-failure">
       </div>
     </div>
     </div>
 
+    <!-- logout -->
     <span class="fold float-left">
       <a class="fold text-muted" @click="logout.open = !logout.open">{{ logout.open ? '[-]' : '[+]' }}</a>
     </span>
@@ -73,15 +88,20 @@
       <div class="form-group row">
       <label for="logout-success-url" class="col-5 col-form-label">Logout Success Url</label>
       <div class="col-7">
-        <input v-model="setting.logout.successUrl" :value="setting.logout.successUrl" class="form-control form-control-sm" type="text" id="logout-success-url">
+        <input v-model="setting.logout.successUrl" :value="setting.logout.successUrl"
+          @focus="$emit('focus-on', 'logout');" @blur="$emit('focus-out', 'logout')"
+          class="form-control form-control-sm" type="text" id="logout-success-url">
       </div>
       <label for="delete-cookies" class="col-5 col-form-label">Delete Cookies</label>
       <div class="col-7">
-        <input v-model="setting.logout.deleteCookies" :value="setting.logout.deleteCookies" class="form-control form-control-sm" type="text" id="delete-cookies">
+        <input v-model="setting.logout.deleteCookies" :value="setting.logout.deleteCookies"
+          @focus="$emit('focus-on', 'logout');" @blur="$emit('focus-out', 'logout')"
+          class="form-control form-control-sm" type="text" id="delete-cookies">
       </div>
     </div>
     </div>
 
+    <!-- Access Policies -->
     <span class="fold float-left">
       <a class="fold text-muted" @click="policies.open = !policies.open">{{ policies.open ? '[-]' : '[+]' }}</a>
     </span>
@@ -100,10 +120,15 @@
       <tr v-for="(entry, index) in setting.interceptUrls.patterns">
         <td>{{ index + 1 }}</td>
         <td v-for="key in setting.interceptUrls.column">
-          <input v-model="entry[key]" :value="entry[key]" type="text" class="form-control form-control-sm">
+          <input v-model="entry[key]" :value="entry[key]"
+            @focus="$emit('focus-on', 'policies');" @blur="$emit('focus-out', 'policies')"
+            type="text" class="form-control form-control-sm">
         </td>
         <td class="tddelbtn">
-          <button @click="setting.interceptUrls.patterns.splice(index, 1)" type="button" class="delbtn btn btn-danger btn-sm float-right">del</button>
+          <button @click="setting.interceptUrls.patterns.splice(index, 1)"
+            type="button" class="delbtn btn btn-danger btn-sm float-right">
+            del
+          </button>
         </td>
       </tr>
       </tbody>
@@ -113,6 +138,7 @@
       </div>
     </div>
 
+    <!-- Exception -->
     <h3 class="h5">Exception Handler</h3>
     <div class="form-group row">
       <label for="exception-url" class="col-5 col-form-label">Exception URL</label>
@@ -121,6 +147,7 @@
       </div>
     </div>
 
+    <!-- CSRF -->
     <span class="fold float-left">
       <a class="fold text-muted" @click="csrf.open = !csrf.open">{{ csrf.open ? '[-]' : '[+]' }}</a>
     </span>
@@ -129,7 +156,9 @@
       <div class="form-check">
       <div class="alert" v-bind:class="{'alert-danger': !setting.enableCSRFProtection}">
         <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" v-model="setting.enableCSRFProtection" />
+          <input v-model="setting.enableCSRFProtection"
+            @focus="$emit('focus-on', 'csrf');" @blur="$emit('focus-out', 'csrf')"
+          class="form-check-input" type="checkbox" />
           <span v-if="!setting.enableCSRFProtection"><strong>Enable CSRF protection</strong>&ensp;</strong>
           <span class="badge badge-pill badge-danger">Danger!</span></span>
           <span v-else>Enable CSRF protection&ensp;<span class="badge badge-pill badge-success">Good!</span></span>
@@ -138,18 +167,23 @@
     </div>
     </div>
 
+    <!-- Misc -->
     <span class="fold float-left">
       <a class="fold text-muted" @click="misc.open = !misc.open">{{ misc.open ? '[-]' : '[+]' }}</a>
     </span>
     <h3 class="h5">Misc</h3>
     <div v-show="misc.open">
       <div class="form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" v-model="setting.putUserIdIntoMDC" />
-        Put UserID into MDC
-      </label>
+        <label class="form-check-label">
+          <input v-model="setting.putUserIdIntoMDC"
+            @focus="$emit('focus-on', 'misc');" @blur="$emit('focus-out', 'misc')"
+            class="form-check-input" type="checkbox" />
+          Put UserID into MDC
+        </label>
+      </div>
     </div>
-    </div>
+
+    <hr />
 
   </div><!-- settings -->
 </template>

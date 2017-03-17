@@ -2,10 +2,19 @@
   <div id="app">
     <div class="row">
       <div class="col-md-6">
-        <setting-lists :setting="settingTree" v-on:add-new-resource="addNewResource" v-on:add-new-policy="addNewPolicy"></setting-lists>
+        <setting-lists
+          :setting="settingTree"
+          v-on:add-new-resource="addNewResource"
+          v-on:focus-on="focusOn"
+          v-on:focus-out="focusOut"
+          v-on:add-new-policy="addNewPolicy">
+        </setting-lists>
       </div>
       <div class="col-md-6">
-        <preview :setting="settingTree"></preview>
+        <preview
+          :setting="settingTree"
+          :focuses="focuses">
+        </preview>
       </div>
     </div>
   </div>
@@ -48,9 +57,23 @@ export default {
         enableCSRFProtection: true,
         putUserIdIntoMDC: true,
       },
+      focuses: {
+        resources: false,
+        login: false,
+        logout: false,
+        policies: false,
+        csrf: false,
+        misc: false,
+      },
     };
   },
   methods: {
+    focusOn(target) {
+      this.focuses[target] = true;
+    },
+    focusOut(target) {
+      this.focuses[target] = false;
+    },
     addNewResource() {
       this.settingTree.resources.patterns.push({ pattern: '', security: '' });
     },
