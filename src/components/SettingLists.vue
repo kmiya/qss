@@ -9,12 +9,6 @@
           <option value="4.x.x">4.x.x</option>
         </select>
       </div>
-      <label for="config-template" class="col-5 col-form-label">Template</label>
-      <div class="col-7">
-        <select class="form-control form-control-sm" id="config-template">
-          <option value="terasoluna-gfw-web-(multi-)blank">terasoluna-gfw-web-(multi-)blank</option>
-        </select>
-      </div>
     </div>
 
     <!-- Resources -->
@@ -155,7 +149,7 @@
     </div>
 
     <!-- Exception -->
-    <span class="guideline float-right">
+    <!-- <span class="guideline float-right">
       <a href="#" class="guideline text-muted">[T]</a>
       <a href="#" class="guideline text-muted">[P]</a>
     </span>
@@ -165,7 +159,7 @@
       <div class="col-7">
         <input class="form-control" type="text" placeholder="/error" id="exception-url">
       </div>
-    </div>
+    </div> -->
 
     <!-- CSRF -->
     <span class="fold float-left">
@@ -189,22 +183,6 @@
         </label>
       </div>
     </div>
-    </div>
-
-    <!-- Misc -->
-    <span class="fold float-left">
-      <a class="fold text-muted" @click="misc.open = !misc.open">{{ misc.open ? '[-]' : '[+]' }}</a>
-    </span>
-    <h3 class="h5">Misc</h3>
-    <div v-show="misc.open">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input v-model="setting.putUserIdIntoMDC"
-            @focus="$emit('focus-on', 'misc');" @blur="$emit('focus-out', 'misc')"
-            class="form-check-input" type="checkbox" />
-          Put UserID into MDC
-        </label>
-      </div>
     </div>
 
     <hr />

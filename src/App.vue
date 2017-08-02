@@ -55,7 +55,6 @@ export default {
           ],
         },
         enableCSRFProtection: true,
-        putUserIdIntoMDC: true,
       },
       focuses: {
         resources: false,

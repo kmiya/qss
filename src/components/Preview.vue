@@ -34,7 +34,6 @@
         delete-cookies=&quot;<span>{{ setting.logout.deleteCookies }}</span>&quot; /&gt;<!--
       --></div><!--
 -->      &lt;sec:access-denied-handler ref=&quot;accessDeniedHandler&quot;/&gt;
-      &lt;sec:custom-filter ref=&quot;userIdMDCPutFilter&quot; after=&quot;ANONYMOUS_FILTER&quot;/&gt;
       &lt;sec:session-management /&gt;<!--
 
       Intercept URLs
@@ -84,14 +83,6 @@
       &lt;/constructor-arg&gt;
   &lt;/bean&gt;
 </div>
-<!--
-  Misc
---><div v-if="setting.putUserIdIntoMDC" v-bind:class="{ focused: focuses.misc }"><!--
--->  &lt;!-- Put UserID into MDC --&gt;
-  &lt;bean id=&quot;userIdMDCPutFilter&quot; class=&quot;org.terasoluna.gfw.security.web.logging.UserIdMDCPutFilter&quot;&gt;
-  &lt;/bean&gt;
-</div><!--
--->
 &lt;/beans&gt;
 </code></pre>
 </div>
