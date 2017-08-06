@@ -16,7 +16,6 @@
       <a class="fold text-muted" @click="res.open = !res.open">{{ res.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[T]</a>
       <a href="#" class="guideline text-muted">[P]</a>
     </span>
     <h3 class="h5">Resources</h3>
@@ -60,7 +59,6 @@
       <a class="fold text-muted" @click="login.open = !login.open">{{ login.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[T]</a>
       <a href="#" class="guideline text-muted">[P]</a>
     </span>
     <h3 class="h5">Login</h3>
@@ -86,7 +84,6 @@
       <a class="fold text-muted" @click="logout.open = !logout.open">{{ logout.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[T]</a>
       <a href="#" class="guideline text-muted">[P]</a>
     </span>
     <h3 class="h5">Logout</h3>
@@ -112,7 +109,6 @@
       <a class="fold text-muted" @click="policies.open = !policies.open">{{ policies.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[T]</a>
       <a href="#" class="guideline text-muted">[P]</a>
     </span>
     <h3 class="h5">Access Policies</h3>
@@ -150,7 +146,6 @@
 
     <!-- Exception -->
     <!-- <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[T]</a>
       <a href="#" class="guideline text-muted">[P]</a>
     </span>
     <h3 class="h5">Exception Handler</h3>
@@ -166,7 +161,6 @@
       <a class="fold text-muted" @click="csrf.open = !csrf.open">{{ csrf.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[T]</a>
       <a href="#" class="guideline text-muted">[P]</a>
     </span>
     <h3 class="h5">CSRF Protection</h3>
