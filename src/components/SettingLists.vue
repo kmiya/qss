@@ -16,7 +16,7 @@
       <a class="fold text-muted" @click="res.open = !res.open">{{ res.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[doc]</a>
+      <a href="https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#nsa-http-attributes" class="guideline text-muted">[doc]</a>
     </span>
     <h3 class="h5">Resources</h3>
     <div v-show="res.open">
@@ -59,7 +59,7 @@
       <a class="fold text-muted" @click="login.open = !login.open">{{ login.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[doc]</a>
+      <a href="https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#nsa-form-login" class="guideline text-muted">[doc]</a>
     </span>
     <h3 class="h5">Login</h3>
     <div v-show="login.open">
@@ -84,7 +84,7 @@
       <a class="fold text-muted" @click="logout.open = !logout.open">{{ logout.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[doc]</a>
+      <a href="https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#nsa-logout" class="guideline text-muted">[doc]</a>
     </span>
     <h3 class="h5">Logout</h3>
     <div v-show="logout.open">
@@ -109,7 +109,7 @@
       <a class="fold text-muted" @click="policies.open = !policies.open">{{ policies.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[doc]</a>
+      <a href="https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#nsa-intercept-url" class="guideline text-muted">[doc]</a>
     </span>
     <h3 class="h5">Access Policies</h3>
     <div v-show="policies.open">
@@ -161,7 +161,7 @@
       <a class="fold text-muted" @click="csrf.open = !csrf.open">{{ csrf.open ? '[-]' : '[+]' }}</a>
     </span>
     <span class="guideline float-right">
-      <a href="#" class="guideline text-muted">[doc]</a>
+      <a href="https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#csrf" class="guideline text-muted">[doc]</a>
     </span>
     <h3 class="h5">CSRF Protection</h3>
     <div v-show="csrf.open">
