@@ -33,7 +33,7 @@
         <tr v-for="(entry, index) in setting.resources.patterns">
           <td>{{ index + 1}}</td>
           <td v-for="key in setting.resources.column">
-            <input v-model="entry[key]" :value="entry[key]"
+            <input v-model="entry[key]"
               @focus="$emit('focus-on', 'resources');" @blur="$emit('focus-out', 'resources')"
               type="text" class="form-control form-control-sm">
           </td>
@@ -66,13 +66,13 @@
       <div class="form-group row">
       <label for="login-page" class="col-5 col-form-label">Login Page</label>
       <div class="col-7">
-        <input v-model="setting.formLogin.loginPage" :value="setting.formLogin.loginPage"
+        <input v-model="setting.formLogin.loginPage"
           @focus="$emit('focus-on', 'login');" @blur="$emit('focus-out', 'login')"
           class="form-control form-control-sm" type="text" id="login-page">
       </div>
       <label for="login-failure" class="col-5 col-form-label">Login Failure Url</label>
       <div class="col-7">
-        <input v-model="setting.formLogin.failureUrl" :value="setting.formLogin.failureUrl"
+        <input v-model="setting.formLogin.failureUrl"
           @focus="$emit('focus-on', 'login');" @blur="$emit('focus-out', 'login')"
           class="form-control form-control-sm" type="text" id="login-failure">
       </div>
@@ -91,13 +91,13 @@
       <div class="form-group row">
       <label for="logout-success-url" class="col-5 col-form-label">Logout Success Url</label>
       <div class="col-7">
-        <input v-model="setting.logout.successUrl" :value="setting.logout.successUrl"
+        <input v-model="setting.logout.successUrl"
           @focus="$emit('focus-on', 'logout');" @blur="$emit('focus-out', 'logout')"
           class="form-control form-control-sm" type="text" id="logout-success-url">
       </div>
       <label for="delete-cookies" class="col-5 col-form-label">Delete Cookies</label>
       <div class="col-7">
-        <input v-model="setting.logout.deleteCookies" :value="setting.logout.deleteCookies"
+        <input v-model="setting.logout.deleteCookies"
           @focus="$emit('focus-on', 'logout');" @blur="$emit('focus-out', 'logout')"
           class="form-control form-control-sm" type="text" id="delete-cookies">
       </div>
@@ -126,7 +126,7 @@
       <tr v-for="(entry, index) in setting.interceptUrls.patterns">
         <td>{{ index + 1 }}</td>
         <td v-for="key in setting.interceptUrls.column">
-          <input v-model="entry[key]" :value="entry[key]"
+          <input v-model="entry[key]"
             @focus="$emit('focus-on', 'policies');" @blur="$emit('focus-out', 'policies')"
             type="text" class="form-control form-control-sm">
         </td>
@@ -202,13 +202,16 @@
 </script>
 
 <style>
+#settings {
+  margin-left: .95rem;
+}
 .guideline {
   margin-top: .2rem;
   font-size: .8rem;
   vertical-align: middle;
 }
 .fold {
-  margin-left: -.95rem;
+  margin-left: -.75rem;
   text-align: right;
   vertical-align: middle;
   font-family: Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
